@@ -114,7 +114,7 @@ int main(int argc, char * argv[]) {
     scsi_read_capacity.timeout=1000;
     
     scsi_data_read_capacity=send_scsicmd(scsi_read_capacity);
-    printf("read_capacity_result = %i\n", scsi_data_read_capacity);
+    printf("read_capacity_result = %i\n", scsi_data_read_capacity.result);
     if (scsi_data_read_capacity.result==0) {
         printf("    capacity in blocks: %02x%02x%02x%02x%02x%02x%02x%02x\n",
             scsi_data_read_capacity.data[0],
