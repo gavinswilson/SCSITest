@@ -100,9 +100,9 @@ int main(int argc, char * argv[]) {
     printf("Investigating %s\n", argv[1]);
     int i;
 
-    SCSI_data   scsi_data_read_capacity;
+    SCSI_data   scsi_data_read_capacity, scsi_data_read_data;
 
-    SCSI_cmd    scsi_read_capacity;
+    SCSI_cmd    scsi_read_capacity, scsi_read_data;
     
     scsi_read_capacity.sg_fd=fileno(driveptr);
     scsi_read_capacity.cmdblk[0]=0x9e;
@@ -115,7 +115,7 @@ int main(int argc, char * argv[]) {
     
     scsi_data_read_capacity=send_scsicmd(scsi_read_capacity);
     printf("read_capacity_result = %i\n", scsi_data_read_capacity.result);
-    if (scsi_data_read_capacity.result==1) {
+    if (scsi_data_read_capacity.result==0) {
         printf("    capacity in blocks: %02x%02x%02x%02x%02x%02x%02x%02x\n",
             scsi_data_read_capacity.data[0],
             scsi_data_read_capacity.data[1],
@@ -133,6 +133,27 @@ int main(int argc, char * argv[]) {
             scsi_data_read_capacity.data[11]);
 
     }
+
+    scsi_read_data.sg_fd=fileno(driveptr);
+    scsi_read_data.cmdblk[0]=0x9e;
+    scsi_read_data.cmdblk[1]=0x10;
+    scsi_read_data.cmdblk[13]=32;
+    scsi_read_data.cmdblklength=16;
+    scsi_read_data.xfer=SG_DXFER_FROM_DEV;
+    scsi_read_data.allocation_length=32;
+    scsi_read_data.timeout=1000;
+    
+    scsi_data_read_data=send_scsicmd(scsi_read_data);
+    printf("read_capacity_result = %i\n", scsi_data_read_data.result);
+    printf("    capacity in blocks: %02x%02x%02x%02x%02x%02x%02x%02x\n",
+        scsi_data_read_capacity.data[0],
+        scsi_data_read_capacity.data[1],
+        scsi_data_read_capacity.data[2],
+        scsi_data_read_capacity.data[3],
+        scsi_data_read_capacity.data[4],
+        scsi_data_read_capacity.data[5],
+        scsi_data_read_capacity.data[6],
+        scsi_data_read_capacity.data[7]);
 
     fclose(driveptr);
 
