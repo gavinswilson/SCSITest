@@ -121,8 +121,7 @@ int main(int argc, char * argv[])
         for (int i = 0; i < _16_REPLY_LEN-10; i++)
         {
             //printf("%c", inBuff[i]);
-            printf("%c", p);
-            p +=8;
+            printf("%c ", p[i]);
         }
         
         printf("Some of the INQUIRY command's results:\n");
