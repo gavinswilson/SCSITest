@@ -112,15 +112,21 @@ int main(int argc, char * argv[])
         break;
     }
     */
-    
+    // inBuff = io_hdr.dxferp;
+
     if (ok) { /* output result if it is available */
         printf("READ_16 duration=%u millisecs, resid=%d, msg_status=%d\n",
                io_hdr.duration, io_hdr.resid, (int)io_hdr.msg_status);
-        for (int i = 0; i < sizeof(inBuff); i++)
+        char * p = (char *)inBuff;
+        for (int i = 0; i < _16_REPLY_LEN-10; i++)
         {
-            printf("%c", inBuff[i]);
+            //printf("%c", inBuff[i]);
+            printf("%c", p);
+            p +=8;
         }
         
+        printf("Some of the INQUIRY command's results:\n");
+        printf("    %.8s  %.16s  %.4s  ", p + 8, p + 16, p + 32);
         //hex_dump(inBuff,sizeof(inBuff));
     }
 

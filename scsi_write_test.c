@@ -85,7 +85,7 @@ int main(int argc, char * argv[])
     io_hdr.cmd_len = sizeof(w16_cdb);
     /* io_hdr.iovec_count = 0; */  /* memset takes care of this */
     io_hdr.mx_sb_len = sizeof(sense_buffer);
-    io_hdr.dxfer_direction = SG_DXFER_FROM_DEV;
+    io_hdr.dxfer_direction = SG_DXFER_TO_DEV;
     io_hdr.dxfer_len = _16_REPLY_LEN;
     io_hdr.dxferp = outBuff;
     io_hdr.cmdp = w16_cdb;
