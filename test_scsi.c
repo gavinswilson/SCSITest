@@ -108,6 +108,7 @@ int main(int argc, char * argv[]) {
     
 
     scsi_read_capacity.sg_fd=fileno(driveptr);
+    printf("3\n");
     scsi_read_capacity.cmdblk[0]=0x9e;
     scsi_read_capacity.cmdblk[1]=0x10;
     scsi_read_capacity.cmdblk[13]=32;
@@ -116,7 +117,7 @@ int main(int argc, char * argv[]) {
     scsi_read_capacity.allocation_length=32;
     scsi_read_capacity.timeout=1000;
 
-    printf("3\n");
+    printf("4\n");
     
     scsi_data_read_capacity=send_scsicmd(scsi_read_capacity);
 
