@@ -97,7 +97,7 @@ int main(int argc, char * argv[])
     }
 
     /* now for the error processing */
-    ok = 0;
+    ok = 1;
     /*
     switch (sg_err_category3(&io_hdr)) {
     case SG_LIB_CAT_CLEAN:
