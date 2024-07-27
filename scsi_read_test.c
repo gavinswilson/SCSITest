@@ -116,6 +116,7 @@ int main(int argc, char * argv[])
     if (ok) { /* output result if it is available */
         printf("READ_16 duration=%u millisecs, resid=%d, msg_status=%d\n",
                io_hdr.duration, io_hdr.resid, (int)io_hdr.msg_status);
+        hex_dump(inBuff,sizeof(inBuff));
     }
 
     close(sg_fd);
