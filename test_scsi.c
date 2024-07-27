@@ -60,7 +60,7 @@ SCSI_data send_scsicmd(SCSI_cmd cmdobject) {
         output_data.result=2;
         return output_data;
     }
-
+    
     /* now for the error processing */
     if ((io_hdr.info & SG_INFO_OK_MASK) != SG_INFO_OK) {
         output_data.result=1;
@@ -115,7 +115,7 @@ int main(int argc, char * argv[]) {
     
     scsi_data_read_capacity=send_scsicmd(scsi_read_capacity);
     printf("read_capacity_result = %i\n", scsi_data_read_capacity.result);
-    if (scsi_data_read_capacity.result==0) {
+    if (scsi_data_read_capacity.result==1) {
         printf("    capacity in blocks: %02x%02x%02x%02x%02x%02x%02x%02x\n",
             scsi_data_read_capacity.data[0],
             scsi_data_read_capacity.data[1],
