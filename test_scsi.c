@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <sys/ioctl.h>
+#include <string.h>
 #include <scsi/sg.h> 
 
 
