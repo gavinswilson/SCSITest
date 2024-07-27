@@ -96,14 +96,16 @@ SCSI_data send_scsicmd(SCSI_cmd cmdobject) {
 
 int main(int argc, char * argv[]) {
 
+    printf("1\n");
     FILE *driveptr=fopen(argv[1], "r");
-
+    printf("%s\n", argv[1]);
     int i;
 
     SCSI_data   scsi_data_read_capacity;
 
     SCSI_cmd    scsi_read_capacity;
-
+    printf("2\n");
+    
 
     scsi_read_capacity.sg_fd=fileno(driveptr);
     scsi_read_capacity.cmdblk[0]=0x9e;
@@ -114,6 +116,8 @@ int main(int argc, char * argv[]) {
     scsi_read_capacity.allocation_length=32;
     scsi_read_capacity.timeout=1000;
 
+    printf("3\n");
+    
     scsi_data_read_capacity=send_scsicmd(scsi_read_capacity);
 
     if (scsi_data_read_capacity.result==0) {
