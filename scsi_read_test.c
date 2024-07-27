@@ -9,7 +9,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <scsi/sg.h>
-
+ 
 /* This program performs a READ_16 command as scsi mid-level support
    16 byte commands from lk 2.4.15
 

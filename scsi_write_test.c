@@ -126,7 +126,7 @@ int main(int argc, char * argv[])
             printf("%i", inBuff[i]);
         }
         
-        //hex_dump(inBuff,sizeof(inBuff));
+        //hex_dump(inBuff,sizeof(inBuff)); 
     }
     */
     close(sg_fd);
