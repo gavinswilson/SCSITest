@@ -43,7 +43,7 @@ int main(int argc, char * argv[])
 
     for (int i = 0; i < sizeof(outBuff); i++)
         {
-            outBuff[i] = 5;
+            outBuff[i] = 'A';
         }
 
     for (k = 1; k < argc; ++k) {

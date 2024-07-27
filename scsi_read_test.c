@@ -118,7 +118,7 @@ int main(int argc, char * argv[])
                io_hdr.duration, io_hdr.resid, (int)io_hdr.msg_status);
         for (int i = 0; i < sizeof(inBuff); i++)
         {
-            printf("%i", inBuff[i]);
+            printf("%c", inBuff[i]);
         }
         
         //hex_dump(inBuff,sizeof(inBuff));
