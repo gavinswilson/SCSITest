@@ -76,7 +76,7 @@ void read_scsi(char* file_name)
     }
 
     close(sg_fd);
-}
+};
 
 void write_scsi(char* file_name, char* character)
 {
@@ -130,4 +130,4 @@ void write_scsi(char* file_name, char* character)
     
     close(sg_fd);
     return 0;
-}
+};
