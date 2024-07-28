@@ -105,7 +105,7 @@ int main(int argc, char * argv[])
     printf("Driver Status: %i\n", io_hdr.driver_status);
     printf("SBP Status: %s\n", io_hdr.sbp);
     printf("SB_Len_Wr Status: %i\n", io_hdr.sb_len_wr);
-    printf("return data Status: %.8s\n", io_hdr.dxferp);
+    printf("return data Status: %.8s\n", (char*)io_hdr.dxferp);
     
     /*switch (sg_err_category3(&io_hdr)) {
     //case SG_LIB_CAT_CLEAN:
