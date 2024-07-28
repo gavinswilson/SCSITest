@@ -98,12 +98,14 @@ int main(int argc, char * argv[])
 
     /* now for the error processing */
     ok = 1;
-    /*
+    
+    printf("Error: %i\n", sg_err_category3(&io_hdr));
+    
     switch (sg_err_category3(&io_hdr)) {
-    case SG_LIB_CAT_CLEAN:
+    //case SG_LIB_CAT_CLEAN:
         ok = 1;
         break;
-    case SG_LIB_CAT_RECOVERED:
+    //case SG_LIB_CAT_RECOVERED:
         printf("Recovered error on READ_16, continuing\n");
         ok = 1;
         break;
@@ -111,7 +113,7 @@ int main(int argc, char * argv[])
         sg_chk_n_print3("READ_16 command error", &io_hdr, 1);
         break;
     }
-    */
+    
     // inBuff = io_hdr.dxferp;
 
     if (ok) { /* output result if it is available */
