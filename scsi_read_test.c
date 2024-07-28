@@ -38,7 +38,7 @@ int main(int argc, char * argv[])
     sg_io_hdr_t io_hdr;
     char * file_name = 0;
     char ebuff[EBUFF_SZ];
-    char inBuff[_16_REPLY_LEN];
+    uint8_t inBuff[_16_REPLY_LEN];
     uint8_t sense_buffer[32];
 
     for (k = 1; k < argc; ++k) {
@@ -122,7 +122,10 @@ int main(int argc, char * argv[])
         {
             // printf("Buf: %c ", (*char) io_hdr.dxferp[i]);
             // printf("Buf: %c ", inBuff[i]);
-            printf("p: %.8s ", p);
+            // printf("p: %.
+            printf("Response:\n");
+            dWordHex((const unsigned short *)inBuff, 256, 0,
+                 sg_is_big_endian());
         }
         
         //printf("Some of the INQUIRY command's results:\n");
