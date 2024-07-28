@@ -16,11 +16,12 @@
 
 #define EBUFF_SZ 256
 
-int read_scsi(char* file_name)
+int read_scsi(char* file_name, int* lba)
 {
     int sg_fd, ok;
     uint8_t r16_cdb [_16_CMD_LEN] =
                 {0x88, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0};
+    r16_cdb[9]=lba;
     sg_io_hdr_t io_hdr;
     //char * file_name = 0;
     char ebuff[EBUFF_SZ];
@@ -78,11 +79,12 @@ int read_scsi(char* file_name)
     close(sg_fd);
 }
 
-int write_scsi(char* file_name, unsigned char *character)
+int write_scsi(char* file_name, unsigned char *character, int* lba)
 {
     int sg_fd, k, ok;
     uint8_t w16_cdb [_16_CMD_LEN] =
                 {0x8A, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    w16_cdb[9] = lba;
     sg_io_hdr_t io_hdr;
     //char * file_name = 0;
     char ebuff[EBUFF_SZ];

@@ -16,7 +16,7 @@ int main(int argc, char * argv[])
     {
     int k;
     char * file_name = 0;
-
+    int lba = 0;
     for (k = 1; k < argc; ++k) {
         if (*argv[k] == '-') {
             printf("Unrecognized switch: %s\n", argv[k]);
@@ -36,8 +36,8 @@ int main(int argc, char * argv[])
         return 1;
     }
     unsigned char *character = "C";
-    read_scsi(file_name);
-    write_scsi(file_name, (unsigned char*)character);
+    read_scsi(file_name, lba);
+    write_scsi(file_name, (unsigned char*)character, lba);
     read_scsi(file_name);
     
     return 0;
