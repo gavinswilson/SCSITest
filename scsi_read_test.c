@@ -117,11 +117,12 @@ int main(int argc, char * argv[])
     if (ok) { /* output result if it is available */
         printf("READ_16 duration=%u millisecs, resid=%d, msg_status=%d\n",
                io_hdr.duration, io_hdr.resid, (int)io_hdr.msg_status);
-        char * p = (char *)inBuff;
-        for (int i = 0; i < 50; i++)
+        char* p = (char *)inBuff;
+        for (int i = 0; i < 20; i++)
         {
-            printf("Buf: %c \n", inBuff[i]);
-            printf("p: %c \n", p[i]);
+            // printf("Buf: %c ", (*char) io_hdr.dxferp[i]);
+            // printf("Buf: %c ", inBuff[i]);
+            printf("p: %.8s ", p);
         }
         
         //printf("Some of the INQUIRY command's results:\n");
