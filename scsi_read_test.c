@@ -99,7 +99,12 @@ int main(int argc, char * argv[])
     /* now for the error processing */
     ok = 1;
     
-    printf("Error: %i\n", sg_err_category3(&io_hdr));
+    
+    printf("Host Status: %i\n", io_hdr.host_status);
+    printf("Status: %i\n", io_hdr.status);
+    printf("Driver Status: %i\n", io_hdr.driver_status);
+    printf("SBP Status: %i\n", io_hdr.sbp);
+    printf("SB_Len_Wr Status: %i\n", io_hdr.sb_len_wr);
     
     switch (sg_err_category3(&io_hdr)) {
     //case SG_LIB_CAT_CLEAN:
