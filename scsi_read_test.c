@@ -117,7 +117,7 @@ int main(int argc, char * argv[])
     if (ok) { /* output result if it is available */
         printf("READ_16 duration=%u millisecs, resid=%d, msg_status=%d\n",
                io_hdr.duration, io_hdr.resid, (int)io_hdr.msg_status);
-        char* p = (char *)inBuff;
+        char* p = (char *)io_hdr.dxferp;
         printf("p: %.8s", p);
         for (int i = 0; i < 20; i++)
         {
