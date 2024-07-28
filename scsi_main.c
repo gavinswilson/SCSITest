@@ -9,11 +9,38 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <scsi/sg.h>
+#include "scsi_utils.h"
 
 
 int main(int argc, char * argv[]) 
     {
-    return 0
+    int k;
+    char * file_name = 0;
+
+    for (k = 1; k < argc; ++k) {
+        if (*argv[k] == '-') {
+            printf("Unrecognized switch: %s\n", argv[k]);
+            file_name = 0;
+            break;
+        }
+        else if (0 == file_name)
+            file_name = argv[k];
+        else {
+            printf("too many arguments\n");
+            file_name = 0;
+            break;
+        }
+    }
+    if (0 == file_name) {
+        printf("Usage: 'sg_simple16 <sg_device>'\n");
+        return 1;
+    }
+    read_scsi(file_name);
+    write_scsi(file_name, 'B');
+    read_scsi(file_name);
+    
+    return 0;
+
     }
 
 
