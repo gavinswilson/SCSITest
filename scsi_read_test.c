@@ -106,7 +106,7 @@ int main(int argc, char * argv[])
     printf("SBP Status: %s\n", io_hdr.sbp);
     printf("SB_Len_Wr Status: %i\n", io_hdr.sb_len_wr);
     
-    switch (sg_err_category3(&io_hdr)) {
+    /*switch (sg_err_category3(&io_hdr)) {
     //case SG_LIB_CAT_CLEAN:
         ok = 1;
         break;
@@ -120,7 +120,7 @@ int main(int argc, char * argv[])
     }
     
     // inBuff = io_hdr.dxferp;
-
+*/
     if (ok) { /* output result if it is available */
         printf("READ_16 duration=%u millisecs, resid=%d, msg_status=%d\n",
                io_hdr.duration, io_hdr.resid, (int)io_hdr.msg_status);
