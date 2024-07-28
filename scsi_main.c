@@ -36,9 +36,9 @@ int main(int argc, char * argv[])
         return 1;
     }
     unsigned char *character = "C";
-    read_scsi(file_name, lba);
-    write_scsi(file_name, (unsigned char*)character, lba);
-    read_scsi(file_name);
+    read_scsi(file_name, *lba);
+    write_scsi(file_name, (unsigned char*)character, *lba);
+    read_scsi(file_name, *lba);
     
     return 0;
 
