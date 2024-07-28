@@ -118,14 +118,14 @@ int main(int argc, char * argv[])
         printf("READ_16 duration=%u millisecs, resid=%d, msg_status=%d\n",
                io_hdr.duration, io_hdr.resid, (int)io_hdr.msg_status);
         char * p = (char *)inBuff;
-        for (int i = 0; i < _16_REPLY_LEN-10; i++)
+        for (int i = 0; i < 50; i++)
         {
-            printf("%c", inBuff[i]);
-            printf("%c ", p[i]);
+            printf("Buf: %c \n", inBuff[i]);
+            printf("p: %c \n", p[i]);
         }
         
-        printf("Some of the INQUIRY command's results:\n");
-        printf("    %.8s  %.16s  %.4s  ", p + 8, p + 16, p + 32);
+        //printf("Some of the INQUIRY command's results:\n");
+        //printf("    %.8s  %.16s  %.4s  ", p + 8, p + 16, p + 32);
         //hex_dump(inBuff,sizeof(inBuff));
     }
 
