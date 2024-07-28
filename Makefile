@@ -1,3 +1,2 @@
-gcc -o SCSIwrite scsi_write_test.c
-
-gcc -o SCSIread scsi_read_test.c
+all: scsi_main.c
+	gcc -o SCSI scsi_main.c scsi_utils.c

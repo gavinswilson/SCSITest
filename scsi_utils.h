@@ -6,6 +6,7 @@
 
 #define EBUFF_SZ 256
 
-void read_scsi(char* file_name);
-void write_scsi(char* file_name, char* character)
+int read_scsi(char* file_name);
+int write_scsi(char* file_name, unsigned char *character);
+
 #endif

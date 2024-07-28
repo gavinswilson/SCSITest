@@ -16,7 +16,7 @@
 
 #define EBUFF_SZ 256
 
-void read_scsi(char* file_name)
+int read_scsi(char* file_name)
 {
     int sg_fd, ok;
     uint8_t r16_cdb [_16_CMD_LEN] =
@@ -76,9 +76,9 @@ void read_scsi(char* file_name)
     }
 
     close(sg_fd);
-};
+}
 
-void write_scsi(char* file_name, char* character)
+int write_scsi(char* file_name, unsigned char *character)
 {
     int sg_fd, k, ok;
     uint8_t w16_cdb [_16_CMD_LEN] =
@@ -91,7 +91,7 @@ void write_scsi(char* file_name, char* character)
 
     for (int i = 0; i < _16_REPLY_LEN; i++)
         {
-            outBuff[i] = character;
+            outBuff[i] = 'B';
         }
 
     if ((sg_fd = open(file_name, O_RDWR)) < 0) {
@@ -130,4 +130,4 @@ void write_scsi(char* file_name, char* character)
     
     close(sg_fd);
     return 0;
-};
+}
