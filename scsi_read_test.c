@@ -118,14 +118,15 @@ int main(int argc, char * argv[])
         printf("READ_16 duration=%u millisecs, resid=%d, msg_status=%d\n",
                io_hdr.duration, io_hdr.resid, (int)io_hdr.msg_status);
         char* p = (char *)inBuff;
+        printf("p: %.8s", p);
         for (int i = 0; i < 20; i++)
         {
             // printf("Buf: %c ", (*char) io_hdr.dxferp[i]);
             // printf("Buf: %c ", inBuff[i]);
-            // printf("p: %.
-            printf("Response:\n");
-            dWordHex((const unsigned short *)inBuff, 256, 0,
-                 sg_is_big_endian());
+            // printf("p: %.8s", p);
+            // printf("Response:\n");
+            // dWordHex((const unsigned short *)inBuff, 256, 0,
+            //      sg_is_big_endian());
         }
         
         //printf("Some of the INQUIRY command's results:\n");
