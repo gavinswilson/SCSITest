@@ -38,7 +38,7 @@ int main(int argc, char * argv[])
     sg_io_hdr_t io_hdr;
     char * file_name = 0;
     char ebuff[EBUFF_SZ];
-    uint8_t inBuff[_16_REPLY_LEN];
+    uint8_t *inBuff[_16_REPLY_LEN];
     uint8_t sense_buffer[32];
 
     for (k = 1; k < argc; ++k) {
