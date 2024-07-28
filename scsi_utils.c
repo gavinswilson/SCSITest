@@ -35,13 +35,13 @@ void read_scsi(char* file_name)
         return 1;
     }
     
-    if ((ioctl(sg_fd, SG_GET_VERSION_NUM, &k) < 0) || (k < 30000)) 
-    {
-        printf("sg_simple16: %s doesn't seem to be an new sg device\n",
-               file_name);
-        close(sg_fd);
-        return 1;
-    }
+    // if ((ioctl(sg_fd, SG_GET_VERSION_NUM, &k) < 0) || (k < 30000)) 
+    // {
+    //     printf("sg_simple16: %s doesn't seem to be an new sg device\n",
+    //            file_name);
+    //     close(sg_fd);
+    //     return 1;
+    // }
 
     memset(&io_hdr, 0, sizeof(sg_io_hdr_t));
     io_hdr.interface_id = 'S';
