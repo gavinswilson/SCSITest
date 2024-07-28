@@ -100,12 +100,12 @@ int main(int argc, char * argv[])
     ok = 1;
     
     
-    printf("Host Status: %i\n", io_hdr.host_status);
-    printf("Status: %i\n", io_hdr.status);
-    printf("Driver Status: %i\n", io_hdr.driver_status);
-    printf("SBP Status: %s\n", io_hdr.sbp);
-    printf("SB_Len_Wr Status: %i\n", io_hdr.sb_len_wr);
-    printf("return data Status: %.8s\n", (char*)inBuff);
+    // printf("Host Status: %i\n", io_hdr.host_status);
+    // printf("Status: %i\n", io_hdr.status);
+    // printf("Driver Status: %i\n", io_hdr.driver_status);
+    // printf("SBP Status: %s\n", io_hdr.sbp);
+    // printf("SB_Len_Wr Status: %i\n", io_hdr.sb_len_wr);
+    // printf("return data Status: %.8s\n", (char*)inBuff);
     
     /*switch (sg_err_category3(&io_hdr)) {
     //case SG_LIB_CAT_CLEAN:
@@ -127,10 +127,10 @@ int main(int argc, char * argv[])
                io_hdr.duration, io_hdr.resid, (int)io_hdr.msg_status);
         char* p = (char *)io_hdr.dxferp;
         printf("p: %.8s \n", p);
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < _16_REPLY_LEN; i++)
         {
             // printf("Buf: %c ", (*char) io_hdr.dxferp[i]);
-            printf("Buf: %hx ", inBuff[i]);
+            printf("%hx ", inBuff[i]);
             // printf("p: %.8s", p);
             // printf("Response:\n");
             // dWordHex((const unsigned short *)inBuff, 256, 0,

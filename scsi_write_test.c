@@ -34,14 +34,14 @@ int main(int argc, char * argv[])
 {
     int sg_fd, k, ok;
     uint8_t w16_cdb [_16_CMD_LEN] =
-                {0x8A, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0};
+                {0x8A, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     sg_io_hdr_t io_hdr;
     char * file_name = 0;
     char ebuff[EBUFF_SZ];
-    uint8_t outBuff[_16_REPLY_LEN];
+    unsigned char outBuff[_16_REPLY_LEN];
     uint8_t sense_buffer[32];
 
-    for (int i = 0; i < sizeof(outBuff); i++)
+    for (int i = 0; i < _16_REPLY_LEN; i++)
         {
             outBuff[i] = 'A';
         }
