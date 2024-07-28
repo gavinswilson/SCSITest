@@ -35,7 +35,7 @@ int main(int argc, char * argv[])
         printf("Usage: 'sg_simple16 <sg_device>'\n");
         return 1;
     }
-    unsigned char *character = "B";
+    unsigned char *character = "C";
     read_scsi(file_name);
     write_scsi(file_name, (unsigned char*)character);
     read_scsi(file_name);

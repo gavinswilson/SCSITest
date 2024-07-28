@@ -91,7 +91,7 @@ int write_scsi(char* file_name, unsigned char *character)
 
     for (int i = 0; i < _16_REPLY_LEN; i++)
         {
-            outBuff[i] = 'B';
+            outBuff[i] = *character;
         }
 
     if ((sg_fd = open(file_name, O_RDWR)) < 0) {
