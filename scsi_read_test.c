@@ -103,7 +103,7 @@ int main(int argc, char * argv[])
     printf("Host Status: %i\n", io_hdr.host_status);
     printf("Status: %i\n", io_hdr.status);
     printf("Driver Status: %i\n", io_hdr.driver_status);
-    printf("SBP Status: %c\n", io_hdr.sbp);
+    printf("SBP Status: %s\n", io_hdr.sbp);
     printf("SB_Len_Wr Status: %i\n", io_hdr.sb_len_wr);
     
     switch (sg_err_category3(&io_hdr)) {
