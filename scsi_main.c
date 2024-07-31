@@ -16,7 +16,7 @@ int main(int argc, char * argv[])
     {
     int k;
     char * file_name = 0;
-    int *lba = 1;
+    int *lba = 2;
     for (k = 1; k < argc; ++k) {
         if (*argv[k] == '-') {
             printf("Unrecognized switch: %s\n", argv[k]);
